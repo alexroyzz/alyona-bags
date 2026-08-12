@@ -22,7 +22,13 @@ dotenv.config();
 connectDB();
 
 const app = express();
+const frontendPath = path.join(__dirname, "../frontend/dist");
 
+app.use(express.static(frontendPath));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(frontendPath, "index.html"));
+});
 app.use(
   cors({
     origin: process.env.CLIENT_URL || "http://localhost:5173",
@@ -38,6 +44,8 @@ if (process.env.NODE_ENV !== "production") {
 app.get("/api/health", (req, res) => {
   res.json({ success: true, message: "Alyona Bags API is running" });
 });
+app.use(notFound);
+app.use(errorHandler);
 app.use("/api/upload", uploadRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/products", productRoutes);
