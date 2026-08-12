@@ -1,0 +1,10 @@
+{
+  "name": "alyona-bags",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Alyona Bags full-stack e-commerce application",
+  "scripts": {
+    "build": "npm install --prefix backend && npm install --prefix frontend && npm run build --prefix frontend",
+    "start": "node backend/server.js"
+  }
+}
