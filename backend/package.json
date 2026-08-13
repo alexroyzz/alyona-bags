@@ -6,10 +6,8 @@
   "type": "module",
   "scripts": {
   "start": "node server.js",
-  "prestart": "npm run build",
   "dev": "nodemon server.js",
-  "seed": "node utils/seed.js",
-  "build": "npm install --prefix ../frontend --include=dev && npm run build --prefix ../frontend"
+  "seed": "node utils/seed.js"
 },
   "dependencies": {
     "@getbrevo/brevo": "^6.0.2",

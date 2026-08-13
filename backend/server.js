@@ -39,7 +39,7 @@ app.use(
   cors({
     origin: process.env.CLIENT_URL || "http://localhost:5173",
     credentials: true,
-  })
+  }),
 );
 
 /* =========================
@@ -90,7 +90,7 @@ app.use("/api/coupons", couponRoutes);
    SERVE REACT FRONTEND
 ========================= */
 
-const frontendPath = path.join(__dirname, "../frontend/dist");
+const frontendPath = path.join(__dirname, "frontend/dist");
 
 app.use(express.static(frontendPath));
 
@@ -127,6 +127,6 @@ app.listen(PORT, () => {
   console.log(
     `Server running in ${
       process.env.NODE_ENV || "development"
-    } mode on port ${PORT}`
+    } mode on port ${PORT}`,
   );
 });
