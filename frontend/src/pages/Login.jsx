@@ -17,7 +17,7 @@ const perks = [
   { icon: HiOutlineTruck, text: "Track every wholesale order in real time" },
   {
     icon: HiOutlineSparkles,
-    text: "Save favourites to your personal wishlist",
+    text: "Reorder your favourite products in a click",
   },
   {
     icon: HiOutlineShieldCheck,
@@ -113,8 +113,8 @@ const Login = () => {
             Good bags, built to last. So is our service.
           </h1>
           <p className="mt-5 text-stone-300 text-[15px] leading-relaxed">
-            Sign in to pick up right where you left off — your orders, your
-            wishlist, and your saved details, all in one place.
+            Sign in to pick up right where you left off — your orders and
+            your saved details, all in one place.
           </p>
 
           <div className="mt-10 space-y-4">

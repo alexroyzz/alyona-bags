@@ -6,7 +6,6 @@ import App from "./App.jsx";
 import { AuthProvider } from "./context/AuthContext.jsx";
 import { UserAuthProvider } from "./context/UserAuthContext.jsx";
 import { CartProvider } from "./context/CartContext.jsx";
-import { WishlistProvider } from "./context/WishlistContext.jsx";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -15,10 +14,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <AuthProvider>
         <UserAuthProvider>
           <CartProvider>
-            <WishlistProvider>
-              <App />
-              <Toaster position="top-center" toastOptions={{ duration: 3500 }} />
-            </WishlistProvider>
+            <App />
+            <Toaster position="top-center" toastOptions={{ duration: 3500 }} />
           </CartProvider>
         </UserAuthProvider>
       </AuthProvider>

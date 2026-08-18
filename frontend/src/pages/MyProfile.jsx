@@ -11,7 +11,6 @@ import {
   HiOutlineLocationMarker,
   HiOutlineCheckCircle,
   HiOutlineShoppingBag,
-  HiOutlineHeart,
 } from "react-icons/hi";
 import { useUserAuth } from "../context/UserAuthContext.jsx";
 import userApi from "../api/userAxios.js";
@@ -150,13 +149,6 @@ const MyProfile = () => {
             >
               <HiOutlineShoppingBag className="text-lg text-ink-900/40" />
               My Orders
-            </Link>
-            <Link
-              to="/wishlist"
-              className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-ink-900/70 hover:bg-stone-100 hover:text-ink-900 transition-colors"
-            >
-              <HiOutlineHeart className="text-lg text-ink-900/40" />
-              Wishlist
             </Link>
           </div>
         </aside>

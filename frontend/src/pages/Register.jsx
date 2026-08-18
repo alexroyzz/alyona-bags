@@ -19,7 +19,7 @@ const perks = [
   { icon: HiOutlineTruck, text: "Track every wholesale order in real time" },
   {
     icon: HiOutlineSparkles,
-    text: "Save favourites to your personal wishlist",
+    text: "Reorder your favourite products in a click",
   },
   {
     icon: HiOutlineShieldCheck,

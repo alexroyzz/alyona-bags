@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation, Link } from "react-router-dom";
 import api from "./api/axios.js";
 
 import Navbar from "./components/Navbar.jsx";
@@ -19,7 +19,6 @@ import Register from "./pages/Register.jsx";
 import ForgotPassword from "./pages/ForgetPassword.jsx";
 import ResetPassword from "./pages/ResetPassword.jsx";
 import VerifyEmail from "./pages/VerifyEmail.jsx";
-import Wishlist from "./pages/Wishlist.jsx";
 import CartCheckout from "./pages/CartCheckout.jsx";
 import OrderSuccess from "./pages/OrderSuccess.jsx";
 import OrderFailure from "./pages/OrderFailure.jsx";
@@ -89,14 +88,6 @@ function App() {
           element={
             <UserProtectedRoute>
               <CartCheckout />
-            </UserProtectedRoute>
-          }
-        />
-        <Route
-          path="/wishlist"
-          element={
-            <UserProtectedRoute>
-              <Wishlist />
             </UserProtectedRoute>
           }
         />
@@ -210,6 +201,22 @@ function App() {
             <ProtectedRoute>
               <AdminAboutManagement />
             </ProtectedRoute>
+          }
+        />
+
+        {/* Catch-all — unknown URLs get a friendly not-found message instead of a blank page */}
+        <Route
+          path="*"
+          element={
+            <div className="pt-40 pb-24 text-center container-px min-h-[60vh]">
+              <h1 className="font-display text-3xl text-ink-900">Page not found</h1>
+              <p className="mt-3 text-ink-900/50">
+                The page you're looking for doesn't exist or may have been moved.
+              </p>
+              <Link to="/" className="mt-6 inline-block text-forest-700 underline">
+                Back to Home
+              </Link>
+            </div>
           }
         />
       </Routes>

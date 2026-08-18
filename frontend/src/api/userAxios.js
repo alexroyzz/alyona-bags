@@ -1,6 +1,6 @@
 import axios from "axios";
 
-// Separate axios instance for storefront customer requests (cart, wishlist, orders, auth).
+// Separate axios instance for storefront customer requests (cart, orders, auth).
 // Kept independent from api/axios.js (admin) so admin sessions are never affected.
 const userApi = axios.create({
   baseURL: import.meta.env.VITE_API_URL || "http://localhost:5000/api",

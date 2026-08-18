@@ -6,7 +6,13 @@ const UserAuthContext = createContext(null);
 export const UserAuthProvider = ({ children }) => {
   const [user, setUser] = useState(() => {
     const saved = localStorage.getItem("alyona_user");
-    return saved ? JSON.parse(saved) : null;
+    if (!saved) return null;
+    try {
+      return JSON.parse(saved);
+    } catch {
+      localStorage.removeItem("alyona_user");
+      return null;
+    }
   });
 
   const [loading, setLoading] = useState(true);

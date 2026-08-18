@@ -6,7 +6,6 @@ import {
   HiOutlineBadgeCheck,
   HiOutlineScale,
   HiOutlineArrowRight,
-  HiOutlinePhone,
 } from "react-icons/hi";
 import api from "../api/axios.js";
 import Hero from "../components/Hero.jsx";
@@ -32,16 +31,27 @@ const whyPoints = [
   },
 ];
 
-const Home = ({ settings, categories }) => {
+const Home = ({ settings, categories = [] }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     api
-      .get("/products", { params: { featured: true, limit: 8 } })
-      .then((res) => setProducts(res.data.data))
-      .catch(() => {})
-      .finally(() => setLoading(false));
+      .get("/products", {
+        params: {
+          featured: true,
+          limit: 8,
+        },
+      })
+      .then((res) => {
+        setProducts(res.data?.data || []);
+      })
+      .catch(() => {
+        setProducts([]);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }, []);
 
   return (
@@ -53,10 +63,12 @@ const Home = ({ settings, categories }) => {
         <div className="flex items-end justify-between mb-10">
           <div>
             <span className="eyebrow">Our Range</span>
+
             <h2 className="mt-3 font-display text-3xl md:text-4xl text-ink-900">
               Shop by Category
             </h2>
           </div>
+
           <Link
             to="/categories"
             className="hidden md:flex items-center gap-1 text-sm text-ink-900/70 hover:text-ink-900"
@@ -64,10 +76,12 @@ const Home = ({ settings, categories }) => {
             View all <HiOutlineArrowRight />
           </Link>
         </div>
+
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
           {categories.slice(0, 6).map((cat, i) => (
             <CategoryCard key={cat._id} category={cat} index={i} />
           ))}
+
           {categories.length === 0 && (
             <p className="col-span-full text-ink-900/50 text-sm">
               Categories will appear here once added.
@@ -82,11 +96,13 @@ const Home = ({ settings, categories }) => {
           <div className="flex items-end justify-between mb-10">
             <div>
               <span className="eyebrow">Best Sellers</span>
+
               <h2 className="mt-3 font-display text-3xl md:text-4xl text-ink-900">
                 Featured Products
               </h2>
             </div>
           </div>
+
           {loading ? (
             <ProductGridSkeleton count={8} />
           ) : (
@@ -94,6 +110,7 @@ const Home = ({ settings, categories }) => {
               {products.map((p, i) => (
                 <ProductCard key={p._id} product={p} index={i} />
               ))}
+
               {products.length === 0 && (
                 <p className="col-span-full text-ink-900/50 text-sm">
                   Featured products will appear here.
@@ -108,10 +125,12 @@ const Home = ({ settings, categories }) => {
       <section className="container-px py-24">
         <div className="text-center max-w-xl mx-auto mb-16">
           <span className="eyebrow">Why Alyona Bags</span>
+
           <h2 className="mt-3 font-display text-3xl md:text-4xl text-ink-900">
             Manufacturing partners trust for scale
           </h2>
         </div>
+
         <div className="grid md:grid-cols-3 gap-8">
           {whyPoints.map((point, i) => (
             <motion.div
@@ -119,13 +138,18 @@ const Home = ({ settings, categories }) => {
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
+              transition={{
+                duration: 0.5,
+                delay: i * 0.1,
+              }}
               className="card-surface p-8"
             >
               <point.icon className="text-3xl text-brass-500" />
+
               <h3 className="mt-5 font-display text-xl text-ink-900">
                 {point.title}
               </h3>
+
               <p className="mt-3 text-sm text-ink-900/60 leading-relaxed">
                 {point.text}
               </p>
@@ -139,14 +163,17 @@ const Home = ({ settings, categories }) => {
         <div className="rounded-xl2 bg-forest-700 text-stone-50 px-8 py-16 md:px-16 flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="max-w-lg">
             <span className="eyebrow text-brass-400">Bulk Orders</span>
+
             <h2 className="mt-3 font-display text-3xl md:text-4xl">
               Ready to stock your store?
             </h2>
+
             <p className="mt-4 text-stone-300">
               Talk to our wholesale team about MOQs, private labelling, and
               volume pricing.
             </p>
           </div>
+
           <div className="flex flex-wrap gap-4">
             <Link
               to="/contact"
@@ -172,15 +199,19 @@ const Home = ({ settings, categories }) => {
           alt="Alyona Bags manufacturing"
           className="rounded-xl2 shadow-card w-full h-[500px] object-contain bg-white"
         />
+
         <div>
           <span className="eyebrow">About Alyona Bags</span>
+
           <h2 className="mt-3 font-display text-3xl md:text-4xl text-ink-900">
             Built by manufacturers, for retailers.
           </h2>
+
           <p className="mt-5 text-ink-900/60 leading-relaxed">
             {settings?.aboutContent ||
               "Alyona Bags is a premium wholesale bag manufacturer, crafting durable and stylish bags for retailers and distributors worldwide. From concept to production, every piece is designed to perform at retail."}
           </p>
+
           <Link
             to="/about"
             className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-forest-700 hover:gap-3 transition-all"

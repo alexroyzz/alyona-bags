@@ -5,7 +5,6 @@ import {
   HiOutlineMenu,
   HiOutlineX,
   HiOutlineShoppingBag,
-  HiOutlineHeart,
   HiOutlineUserCircle,
   HiOutlineLogout,
 } from "react-icons/hi";
@@ -45,13 +44,6 @@ const Navbar = ({ settings }) => {
       return;
     }
     navigate("/cart");
-  };
-
-  const handleWishlistClick = (e) => {
-    if (!isAuthenticated) {
-      e.preventDefault();
-      navigate("/login", { state: { from: "/wishlist" } });
-    }
   };
 
   return (
@@ -101,15 +93,6 @@ const Navbar = ({ settings }) => {
         </div>
 
         <div className="flex items-center gap-1 md:gap-2">
-          <Link
-            to="/wishlist"
-            onClick={handleWishlistClick}
-            className="hidden sm:flex w-10 h-10 rounded-full items-center justify-center text-ink-900/70 hover:text-ink-900 hover:bg-stone-100 transition-colors"
-            aria-label="Wishlist"
-          >
-            <HiOutlineHeart className="text-xl" />
-          </Link>
-
           <button
             onClick={handleCartClick}
             className="relative w-10 h-10 rounded-full flex items-center justify-center text-ink-900/70 hover:text-ink-900 hover:bg-stone-100 transition-colors"
@@ -157,16 +140,6 @@ const Navbar = ({ settings }) => {
                   {link.label}
                 </NavLink>
               ))}
-              <NavLink
-                to="/wishlist"
-                onClick={(e) => {
-                  handleWishlistClick(e);
-                  setOpen(false);
-                }}
-                className="text-base text-ink-900/80"
-              >
-                Wishlist
-              </NavLink>
 
               {isAuthenticated ? (
                 <>
@@ -225,7 +198,9 @@ const Navbar = ({ settings }) => {
               <a
                 href={`tel:${phone.replace(/\s/g, "")}`}
                 className="btn-primary w-full"
-              ></a>
+              >
+                Call Us
+              </a>
             </div>
           </motion.div>
         )}

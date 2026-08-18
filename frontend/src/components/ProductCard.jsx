@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import WishlistButton from "./WishlistButton.jsx";
 
 const stockLabel = {
   in_stock: { text: "In Stock", cls: "bg-forest-600/10 text-forest-700" },
@@ -31,7 +30,6 @@ const ProductCard = ({ product, index = 0 }) => {
             loading="lazy"
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
           />
-          <WishlistButton productId={product._id} className="absolute top-3 right-3" />
         </div>
         <div className="p-5">
           <p className="eyebrow">{product.category?.name}</p>

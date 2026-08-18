@@ -1,7 +1,7 @@
 # Alyona Bags — Premium Catalogue + Ecommerce
 
 A premium, fully responsive MERN website that started as a B2B wholesale catalogue and now
-also supports full ecommerce: customer accounts, cart, wishlist, checkout with Razorpay,
+also supports full ecommerce: customer accounts, cart, checkout with Razorpay,
 coupons, order tracking, invoices, and email notifications — alongside the original
 wholesale enquiry flow (Call Now / WhatsApp / Request Quote), which is untouched.
 
@@ -22,7 +22,7 @@ alyona-bags/
 ├── backend/
 │   ├── config/          # DB + Cloudinary config
 │   ├── middleware/       # auth.js (admin), userAuth.js (customer), upload, errors
-│   ├── models/           # Admin, User, Product, Category, Cart, Wishlist, Order, Coupon, Enquiry, Settings
+│   ├── models/           # Admin, User, Product, Category, Cart, Order, Coupon, Enquiry, Settings
 │   ├── controllers/
 │   ├── routes/
 │   ├── utils/             # JWT helper, seed script, email, invoice PDF, order numbers
@@ -30,10 +30,10 @@ alyona-bags/
 └── frontend/
     └── src/
         ├── api/            # axios.js (admin+public), userAxios.js (customer)
-        ├── context/        # AuthContext (admin), UserAuthContext, CartContext, WishlistContext
+        ├── context/        # AuthContext (admin), UserAuthContext, CartContext
         ├── components/     # Navbar, Footer, cards, gallery, accordion, cart drawer, admin layout...
         ├── pages/          # Home, Categories, ProductDetails, About, Contact,
-        │                   # Login, Register, Cart, Wishlist, Checkout, OrderSuccess/Failure,
+        │                   # Login, Register, Cart, Checkout, OrderSuccess/Failure,
         │                   # MyOrders, OrderDetails
         └── pages/admin/    # Login, Dashboard, Products, Categories, Orders, Coupons, Enquiries, Settings
 ```

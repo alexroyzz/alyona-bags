@@ -27,7 +27,7 @@ export const CartProvider = ({ children }) => {
     setLoading(true);
     try {
       const res = await userApi.get("/cart");
-      setCart(res.data.data);
+      setCart(res.data?.data && Array.isArray(res.data.data.items) ? res.data.data : { items: [] });
     } catch {
       // silent — user may not be logged in yet
     } finally {
@@ -63,7 +63,7 @@ export const CartProvider = ({ children }) => {
         logo,
       });
 
-      setCart(res.data.data);
+      setCart(res.data?.data && Array.isArray(res.data.data.items) ? res.data.data : { items: [] });
       toast.success("Added to cart");
       return true;
     } catch (err) {
@@ -75,7 +75,7 @@ export const CartProvider = ({ children }) => {
   const updateQuantity = async (itemId, quantity) => {
     try {
       const res = await userApi.put(`/cart/${itemId}`, { quantity });
-      setCart(res.data.data);
+      setCart(res.data?.data && Array.isArray(res.data.data.items) ? res.data.data : { items: [] });
     } catch (err) {
       toast.error(err.response?.data?.message || "Could not update cart");
     }
@@ -84,7 +84,7 @@ export const CartProvider = ({ children }) => {
   const removeItem = async (itemId) => {
     try {
       const res = await userApi.delete(`/cart/${itemId}`);
-      setCart(res.data.data);
+      setCart(res.data?.data && Array.isArray(res.data.data.items) ? res.data.data : { items: [] });
       toast.success("Removed from cart");
     } catch (err) {
       toast.error(err.response?.data?.message || "Could not remove item");

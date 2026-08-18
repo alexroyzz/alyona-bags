@@ -15,7 +15,6 @@ import QuoteModal from "../components/QuoteModal.jsx";
 import ProductGallery from "../components/ProductGallery.jsx";
 import Accordion from "../components/Accordion.jsx";
 import RelatedProducts from "../components/RelatedProducts.jsx";
-import WishlistButton from "../components/WishlistButton.jsx";
 
 import { useCart } from "../context/CartContext.jsx";
 import userApi from "../api/userAxios.js";
@@ -186,14 +185,11 @@ const ProductDetails = ({ settings }) => {
 
         {/* Details */}
         <div>
-          <div className="flex items-start justify-between gap-4">
-            <div>
-              <span className="eyebrow">{product.category?.name}</span>
-              <h1 className="mt-3 font-display text-3xl md:text-4xl text-ink-900 leading-tight">
-                {product.name}
-              </h1>
-            </div>
-            <WishlistButton productId={product._id} className="shrink-0" />
+          <div>
+            <span className="eyebrow">{product.category?.name}</span>
+            <h1 className="mt-3 font-display text-3xl md:text-4xl text-ink-900 leading-tight">
+              {product.name}
+            </h1>
           </div>
 
           <div className="mt-4 flex items-center gap-3 flex-wrap">

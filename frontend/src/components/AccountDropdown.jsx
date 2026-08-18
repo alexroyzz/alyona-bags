@@ -5,7 +5,6 @@ import {
   HiOutlineUser,
   HiOutlineUserCircle,
   HiOutlineShoppingBag,
-  HiOutlineHeart,
   HiOutlineLogout,
   HiChevronDown,
 } from "react-icons/hi";
@@ -49,7 +48,6 @@ const AccountDropdown = () => {
   const menuItems = [
     { to: "/my-profile", label: "My Profile", icon: HiOutlineUserCircle },
     { to: "/my-orders", label: "My Orders", icon: HiOutlineShoppingBag },
-    { to: "/wishlist", label: "Wishlist", icon: HiOutlineHeart },
   ];
 
   return (
@@ -128,7 +126,7 @@ const AccountDropdown = () => {
               <div className="p-5">
                 <p className="font-display text-lg text-ink-900">Welcome</p>
                 <p className="mt-1 text-sm text-ink-900/50 leading-relaxed">
-                  Sign in for faster checkout, order tracking and your saved wishlist.
+                  Sign in for faster checkout and order tracking.
                 </p>
                 <Link
                   to="/login"
