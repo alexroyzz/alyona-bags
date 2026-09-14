@@ -88,7 +88,7 @@ app.use("/api/coupons", couponRoutes);
    SERVE REACT FRONTEND
 ========================= */
 
-const frontendPath = path.join(__dirname, "frontend/dist");
+const frontendPath = path.join(__dirname, "dist");
 
 app.use(express.static(frontendPath));
 
