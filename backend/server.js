@@ -180,8 +180,8 @@ app.use("/api/cart", cartRoutes);
 app.use("/api/orders", orderRoutes);
 app.use("/api/payment", paymentRoutes);
 
-const frontendPath = path.resolve(__dirname, "public/frontend");
-const frontendIndexPath = path.join(frontendPath, "index.html");
+const frontendPath = path.resolve(__dirname, "dist");
+const frontendIndexPath = path.join(frontendPath, "index.html");;
 const hasFrontendBuild = existsSync(frontendIndexPath);
 if (hasFrontendBuild) app.use(
   express.static(frontendPath, {
