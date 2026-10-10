@@ -132,17 +132,21 @@ const Contact = ({ settings }) => {
             </div>
           </div>
 
-          <div className="rounded-xl2 overflow-hidden shadow-card h-56">
-            <iframe
-              title="Location Map"
-              src={
-                settings?.mapEmbedUrl ||
-                "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3499.9460476840736!2d77.0570861755447!3d28.69126047563273!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d07b73919f0df%3A0x86364205f063f36a!2sAlyona%20bags%2C%20customisation%20available%20%2CPrinted%20tote%20bags%2CCotton%20tote%20bag%20%2Ccanvas%20bag%2C%20tote%20bag%20manufacturer!5e0!3m2!1sen!2sin!4v1785555711020!5m2!1sen!2sin"
-              }
-              className="w-full h-full border-0"
-              loading="lazy"
-            />
-          </div>
+         <div className="rounded-xl2 overflow-hidden shadow-card h-56">
+  {settings?.mapEmbedUrl ? (
+    <iframe
+      title="Alyona Bags Location Map"
+      src={settings.mapEmbedUrl}
+      className="w-full h-full border-0"
+      loading="lazy"
+      allowFullScreen
+    />
+  ) : (
+    <div className="flex h-full items-center justify-center">
+      Map location not configured
+    </div>
+  )}
+</div>
         </div>
 
         <form
