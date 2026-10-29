@@ -19,11 +19,11 @@ import Category from "./models/Category.js";
 import Settings from "./models/Settings.js";
 import { notFound, errorHandler } from "./middleware/errorHandler.js";
 import { mongoInputGuard } from "./middleware/mongoInputGuard.js";
-import { buildBreadcrumbStructuredData, buildProductStructuredData, buildSiteStructuredData } from "../shared/structuredData.mjs";
-import { cloudinaryImageUrl, cloudinarySrcSet } from "../shared/cloudinaryImage.mjs";
+import { buildBreadcrumbStructuredData, buildProductStructuredData, buildSiteStructuredData } from "./shared/structuredData.mjs";
+import { cloudinaryImageUrl, cloudinarySrcSet } from "./shared/cloudinaryImage.mjs";
 import { ROBOTS_NOINDEX, buildNoscriptFallback, buildRobotsTxt, buildSitemapXml, getPublicSiteUrl, isPrivateApiPath, isPrivatePath } from "./utils/seo.js";
-import { faqItems } from "../shared/faq.mjs";
-import { CATALOGUE_HEADING, HOME_HEADING } from "../shared/pageMeta.mjs";
+import { faqItems } from "./shared/faq.mjs";
+import { CATALOGUE_HEADING, HOME_HEADING } from "./shared/pageMeta.mjs";
 import { createRateLimitHandler } from "./middleware/authRateLimiters.js";
 
 import authRoutes from "./routes/authRoutes.js";

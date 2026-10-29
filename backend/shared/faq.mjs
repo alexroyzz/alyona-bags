@@ -1,0 +1,17 @@
+export const faqItems = [
+  { title: "What is the Minimum Order Quantity (MOQ)?", content: "MOQ varies depending on the product. Contact us for product-specific quantity requirements." },
+  { title: "What printing options do you offer?", content: "We offer screen printing, heat transfer printing, and custom printing options depending on the bag material and requirements." },
+  { title: "How do I place a custom logo order?", content: "Contact us on WhatsApp and share your logo/design file, bag type and size, required quantity, printing preferences, and delivery location." },
+  { title: "What is the dispatch timeline?", content: "Dispatch time depends on the order quantity and customization requirements." },
+  { title: "How long does delivery take?", content: "Delivery generally takes 5–10 days after dispatch, depending on the delivery location." },
+  { title: "Do you ship across India?", content: "Yes, we provide shipping across India." },
+  { title: "Can I order samples before placing a bulk order?", content: "Paid samples may be available depending on the product and availability. Contact us to confirm." },
+  { title: "Can you help with design placement and printing recommendations?", content: "Yes, we provide basic guidance on design placement and printing recommendations. Customers should provide their final design." },
+  { title: "What file format should I provide for printing?", content: "We accept PDF, AI, EPS, SVG, PNG, and JPG/JPEG files for printing." },
+  { title: "Are your bags eco-friendly?", content: "Our reusable cotton and canvas bags offer an eco-conscious alternative to disposable bags." },
+  { title: "Can I wash the bags?", content: "Washing instructions depend on the bag material and printing method. Please contact us for care recommendations for your specific product." },
+  { title: "What industries do you supply to?", content: "We supply retailers and boutiques, corporate branding businesses, event and promotional companies, gifting businesses, fashion and apparel brands, e-commerce businesses, hotels and hospitality businesses, educational institutions, NGOs, eco-conscious organizations, wholesalers, and distributors." },
+  { title: "How do I request a bulk quote?", content: "Use the Request Bulk Quote option on a product page or send an enquiry through our contact page. Include the product, quantity, destination, and customization details." },
+  { title: "Which payment methods are available?", content: "Available payment options are shown during checkout and may depend on the order and delivery details." },
+  { title: "How can I check my order?", content: "Sign in and open My Orders to view order status and available tracking information." },
+];

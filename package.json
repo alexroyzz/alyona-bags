@@ -5,7 +5,9 @@
   "description": "Alyona Bags full-stack e-commerce application",
   "scripts": {
     "postinstall": "npm install --prefix backend --omit=dev",
-    "build": "npm install --prefix backend && npm install --prefix frontend && npm run build --prefix frontend",
+    "sync:shared": "node scripts/sync-shared.mjs",
+    "check:shared": "node scripts/sync-shared.mjs --check",
+    "build": "node scripts/sync-shared.mjs && npm install --prefix backend && npm install --prefix frontend && npm run build --prefix frontend",
     "start": "node backend/server.js"
   }
 }
