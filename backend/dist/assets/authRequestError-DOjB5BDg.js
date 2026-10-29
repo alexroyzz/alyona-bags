@@ -1,0 +1,1 @@
+const n=(e,a)=>{var s;return e!=null&&e.response?e.response.status>=500?"This service is temporarily unavailable. Please try again shortly.":((s=e.response.data)==null?void 0:s.message)||a:"Unable to connect. Please check your connection and try again."};export{n as a};
