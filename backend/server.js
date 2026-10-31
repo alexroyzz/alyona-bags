@@ -275,7 +275,7 @@ const renderHtmlRoute = async (req, res, next) => {
   try {
     let html = await readFile(frontendIndexPath, "utf8");
     const staticPages = {
-      "/": { heading: HOME_HEADING, title: "Custom Cotton & Canvas Tote Bags | Alyona Bags", description: "Shop durable cotton and canvas tote bags from Alyona Bags. Explore custom printing, wholesale options, and bag styles for retailers, brands, and events.", path: "/" },
+      "/": { heading: HOME_HEADING, title: "Alyona Bags | Premium Cotton & Canvas Tote Bags", description: "Discover premium cotton and canvas tote bags by Alyona Bags. Explore reusable bags, custom printing, and wholesale solutions for brands, retailers, and businesses.", path: "/" },
       "/categories": { heading: CATALOGUE_HEADING, title: "Wholesale Tote Bags | Alyona Bags", description: "Browse cotton and canvas bags from Alyona Bags, with custom styles and wholesale options for your business.", path: "/categories" },
       "/about": { title: "About Alyona Bags | Cotton & Canvas Bag Manufacturer", description: "Meet Alyona Bags, a manufacturer of durable cotton and canvas bags for retailers, distributors, and custom branding projects.", path: "/about" },
       "/contact": { title: "Contact Alyona Bags | Wholesale & Custom Orders", description: "Contact Alyona Bags about wholesale tote bags, custom printing, bulk orders, and product enquiries.", path: "/contact" },
@@ -336,7 +336,9 @@ const renderHtmlRoute = async (req, res, next) => {
         const price = product.discountPrice > 0 && product.discountPrice < product.price
           ? product.discountPrice
           : product.price;
-        const description = String(product.description || (product.name + " from Alyona Bags."))
+        const structuredDescription = String(product.description || (product.name + " from Alyona Bags."))
+          .replace(/\s+/g, " ").trim();
+        const description = structuredDescription
           .replace(/\s+/g, " ").slice(0, 155);
         const productRating = await getProductRatingSummary(product._id);
         const ratingSummary = productRating.count ? {
@@ -371,7 +373,7 @@ const renderHtmlRoute = async (req, res, next) => {
           jsonLd: buildProductStructuredData({
             siteUrl: PUBLIC_SITE_URL,
             product,
-            description,
+            description: structuredDescription,
             ratingSummary,
           }),
         };

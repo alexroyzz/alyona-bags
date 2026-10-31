@@ -59,9 +59,8 @@ const Home = ({ settings, categories = [] }) => {
   return (
     <div>
       <Seo
-        title="AlyonaBags Custom Cotton &amp; Canvas Tote Bags | Personalized, Printed, Reusable, Eco-Friendly, Wholesale &amp; Bulk Tote Bags"
-        description="Shop premium cotton tote bags, canvas tote bags, custom printed tote bags, personalized tote bags, reusable shopping bags, and wholesale tote bags. Perfect for business branding, events, promotions, gifting, boutiques, and everyday use.
-                      Custom Tote Bags | Cotton Tote Bags | Canvas Tote Bags | Wholesale & Bulk Orders."
+        title="Alyona Bags | Premium Cotton & Canvas Tote Bags"
+        description="Discover premium cotton and canvas tote bags by Alyona Bags. Explore reusable bags, custom printing, and wholesale solutions for brands, retailers, and businesses."
         path="/"
         image={settings?.heroBanner?.url}
         imageAlt="Alyona Bags cotton and canvas tote bag collection"

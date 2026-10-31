@@ -153,7 +153,8 @@ const ProductDetails = ({ settings }) => {
   const displayPrice = hasDiscount ? product.discountPrice : product.price;
   const outOfStock =
     product.stockStatus === "out_of_stock" || product.stockQuantity === 0;
-  const productDescription = (product.description || (product.name + " from Alyona Bags.")).replace(/\s+/g, " ").slice(0, 155);
+  const structuredDescription = (product.description || (product.name + " from Alyona Bags.")).replace(/\s+/g, " ").trim();
+  const productDescription = structuredDescription.slice(0, 155);
   const productImage = product.images?.[0]?.url;
   const productUrl = `${window.location.origin}/products/${encodeURIComponent(product.slug)}`;
   const productWhatsAppMessage = onlinePaymentEnabled
@@ -166,7 +167,7 @@ const ProductDetails = ({ settings }) => {
   const productSchema = buildProductStructuredData({
     siteUrl: canonicalSiteOrigin(),
     product,
-    description: productDescription,
+    description: structuredDescription,
     ratingSummary,
   });
   const handleAddToCart = async () => {

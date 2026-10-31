@@ -65,10 +65,43 @@ test("product schema includes aggregate ratings only when real approved reviews 
   });
   const productNode = withReviews["@graph"].find((node) => node["@type"] === "Product");
   assert.deepEqual(productNode.aggregateRating, { "@type": "AggregateRating", ratingValue: 4.5, reviewCount: 2 });
+  assert.equal(productNode.url, "https://alyonabags.com/products/canvas-tote");
+  assert.equal("sku" in productNode, false);
 
   const withoutReviews = buildProductStructuredData({ siteUrl: "https://alyonabags.com", product, description: "Canvas tote bag." });
   const productWithoutReviews = withoutReviews["@graph"].find((node) => node["@type"] === "Product");
   assert.equal("aggregateRating" in productWithoutReviews, false);
+});
+
+test("product schema includes only verified identifiers, images, and purchasable offers", () => {
+  const product = {
+    slug: "canvas-tote",
+    name: "Canvas Tote",
+    description: "Canvas tote bag.",
+    sku: "CANVAS-001",
+    price: 100,
+    onlinePaymentEnabled: true,
+    stockStatus: "in_stock",
+    images: [
+      { url: "https://images.example.test/canvas-tote.jpg" },
+      { url: "javascript:alert(1)" },
+    ],
+  };
+  const productNode = buildProductStructuredData({
+    siteUrl: "https://alyonabags.com",
+    product,
+    description: product.description,
+  })["@graph"].find((node) => node["@type"] === "Product");
+  assert.equal(productNode.sku, "CANVAS-001");
+  assert.deepEqual(productNode.image, ["https://images.example.test/canvas-tote.jpg"]);
+  assert.equal(productNode.offers.price, 100);
+
+  const wholesaleOnly = buildProductStructuredData({
+    siteUrl: "https://alyonabags.com",
+    product: { ...product, onlinePaymentEnabled: false },
+    description: product.description,
+  })["@graph"].find((node) => node["@type"] === "Product");
+  assert.equal("offers" in wholesaleOnly, false);
 });
 
 test("configurable social and map links reject unsafe protocols and unexpected map hosts", () => {
@@ -91,7 +124,8 @@ test("robots keeps the public JSON endpoints that render the storefront crawlabl
 test("organization structured data contains only details that were actually provided", () => {
   const bare = buildSiteStructuredData("https://alyonabags.com");
   const bareOrganization = bare["@graph"].find((node) => node["@type"] === "Organization");
-  assert.deepEqual(Object.keys(bareOrganization).sort(), ["@id", "@type", "name", "url"]);
+  assert.equal(bareOrganization.description, "Alyona Bags is a B2B wholesale bag supplier specializing in cotton and canvas tote bags, custom printing, and bulk bag solutions.");
+  assert.equal("contactPoint" in bareOrganization, false);
 
   const rich = buildSiteStructuredData("https://alyonabags.com", {
     logo: "https://res.cloudinary.com/demo/image/upload/logo.png",
@@ -101,7 +135,19 @@ test("organization structured data contains only details that were actually prov
   const organization = rich["@graph"].find((node) => node["@type"] === "Organization");
   assert.equal(organization.logo, "https://res.cloudinary.com/demo/image/upload/logo.png");
   assert.equal(organization.email, "hello@example.test");
+  assert.deepEqual(organization.contactPoint, { "@type": "ContactPoint", email: "hello@example.test" });
   assert.deepEqual(organization.sameAs, ["https://www.instagram.com/example"]);
+  const website = rich["@graph"].find((node) => node["@type"] === "WebSite");
+  assert.equal(website.publisher["@id"], "https://alyonabags.com/#organization");
+});
+
+test("public AI agent guide documents only discovered public routes and authorization boundaries", () => {
+  const guide = readFileSync(new URL("../../frontend/public/agents.md", import.meta.url), "utf8");
+  assert.match(guide, /https:\/\/alyonabags\.com\/categories/);
+  assert.match(guide, /https:\/\/alyonabags\.com\/products/);
+  assert.match(guide, /https:\/\/alyonabags\.com\/contact/);
+  assert.match(guide, /Never submit an enquiry, contact the business, or initiate a purchase.*without their explicit authorization/);
+  assert.match(guide, /Do not claim that Alyona Bags provides an AI shopping API, UCP, or MCP integration/);
 });
 
 test("crawler fallback escapes content, skips empty facts, and links to real pages", () => {
