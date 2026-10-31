@@ -1,0 +1,43 @@
+# Alyona Bags
+
+> Alyona Bags supplies cotton and canvas bags and offers wholesale, bulk-order, custom-printing, and business-order services for brands, retailers, organizations, and other businesses.
+
+Alyona Bags is a product catalogue and customer enquiry platform. Retail checkout may be available for individual products where offered. Confirm wholesale pricing, minimum order quantities, customization, availability, and delivery details through the official business enquiry channel. The live catalogue and product pages are the source of truth for current products and specifications.
+
+## Main Website
+
+- [Home](https://alyonabags.com/): Overview of Alyona Bags and links to the current catalogue and business information.
+- [About Alyona Bags](https://alyonabags.com/about): Information about the supplier and its cotton and canvas bag business.
+- [Contact and business enquiries](https://alyonabags.com/contact): Contact Alyona Bags about wholesale, bulk orders, custom printing, and products.
+
+## Product Discovery
+
+- [Product catalogue](https://alyonabags.com/categories): Browse the current product catalogue.
+- [Black Tote Bags](https://alyonabags.com/categories/black-tote-bags): Current products in the Black Tote Bags category.
+- [Draw String Bags](https://alyonabags.com/categories/draw-string-bags): Current products in the Draw String Bags category.
+- [Plain Tote Bags](https://alyonabags.com/categories/plain-tote-bags): Current products in the Plain Tote Bags category.
+- [Pouches](https://alyonabags.com/categories/pouches): Current products in the Pouches category.
+- [Tote Bags](https://alyonabags.com/categories/tote-bags): Current products in the Tote Bags category.
+- [14 × 12 Inch 300 GSM Cotton Canvas Tote Bag](https://alyonabags.com/products/14-12-inch-300-gsm-cotton-canvas-98145): The page describes a plain cotton canvas tote for everyday carrying and lists a 14 × 12 inch size and 300 GSM cotton canvas fabric. [View the current product image](https://res.cloudinary.com/vhmfojzv/image/upload/v1789592222/alyona-bags/czbke22jfmwkijg2ajpy.png).
+- [14 × 18 Inch 300 GSM Cotton Canvas Tote Bag](https://alyonabags.com/products/14-18-inch-300-gsm-cotton-canvas-89196): The page describes a plain cotton canvas tote for everyday and business use and lists a 14 × 18 inch size and 300 GSM cotton canvas fabric. [View the current product image](https://res.cloudinary.com/vhmfojzv/image/upload/v1789591146/alyona-bags/nrxtpwv3pxlb4ojl6hzs.png).
+
+## Products and Services
+
+The catalogue may include cotton tote bags, canvas tote bags, custom printed bags, promotional bags, and reusable shopping bags. These are broad product types, not a complete or fixed catalogue.
+
+Services include wholesale and bulk orders, custom bag manufacturing, custom logo printing, and corporate and promotional orders. Confirm product-specific options and commercial terms with Alyona Bags.
+
+## Customer Information
+
+- [Frequently asked questions](https://alyonabags.com/faq): Answers about minimum quantities, customization, shipping, quotes, payment, and order tracking.
+- [Customer reviews](https://alyonabags.com/reviews): Public customer reviews and information about sharing an experience.
+- [Privacy policy](https://alyonabags.com/privacy): How website, account, order, payment, and enquiry information is handled.
+- [Terms and conditions](https://alyonabags.com/terms-and-conditions): Terms covering products, orders, payment, shipping, returns, and refunds.
+
+## Technical Discovery
+
+- [XML sitemap](https://alyonabags.com/sitemap.xml): Current public page, category, and active product URLs.
+- [Robots.txt](https://alyonabags.com/robots.txt): Website crawling guidance.
+- [AI Agent Guide](https://alyonabags.com/agents.md): Guidance for AI agents on product discovery, customer authorization, privacy, and supported actions.
+- [Public product catalogue API](https://alyonabags.com/api/products): Public catalogue data; use the linked product pages as the source of truth for current product details.
+- [Public category API](https://alyonabags.com/api/categories): Public category data for catalogue discovery.

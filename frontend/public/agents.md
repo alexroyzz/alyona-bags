@@ -19,6 +19,7 @@ The business serves retail businesses, brands and startups, corporate organizati
 ## Public pages and product discovery
 
 - Home: <https://alyonabags.com/>
+- Business and public-page overview: <https://alyonabags.com/llms.txt>
 - Product catalogue: <https://alyonabags.com/categories>
 - Category pages: linked from the catalogue; use the current category links and slugs.
 - Product pages: <https://alyonabags.com/products/{product-slug}>; follow current catalogue links and slugs.
